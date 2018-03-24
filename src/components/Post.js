@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Post = ({ id, title, text, isPublished, author: { name } }) => (
-  <div className="card" style={{ borderBottom: '1px solid #000' }} key={id}>
+  <div className="card" key={id}>
     <div className="card-body">
       <h5 className="card-title">
         <Link to={`/post/${id}`}>{title}</Link> {!isPublished && '(Draft)'}
