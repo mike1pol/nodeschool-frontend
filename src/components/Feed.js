@@ -7,13 +7,13 @@ import Post from './Post';
 const Feed = ({ feedQuery: { loading, feed } }) => (
   <div>
     {loading && <div>Loading...</div>}
-    {feed && feed.length === 0 && <div>Feed not found</div>}
+    {feed && feed.length === 0 && <div>Posts not found</div>}
     {feed && feed.length > 0 && feed.map(Post)}
   </div>
 );
 
 const FEED_QUERY = gql`
-  query FeedQuery {
+  query Feed {
     feed {
       id
       text

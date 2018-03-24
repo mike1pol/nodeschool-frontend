@@ -1,6 +1,8 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
 
+import Dropdown from './Dropdown';
+
 import { AUTH_TOKEN } from '../constants';
 
 const Header = ({ history }) => {
@@ -47,8 +49,15 @@ const Header = ({ history }) => {
               </Link>
             </li>
           )}
-          <li className="nav-item">
-            {token ? (
+          {token ? (
+            <Dropdown title="Profile">
+              <Link className="nav-link" to="/profile">
+                Profile
+              </Link>
+              <Link className="nav-link" to="/profile/password">
+                Change password
+              </Link>
+              <div className="dropdown-divider" />
               <a
                 style={{ cursor: 'pointer' }}
                 className="nav-link"
@@ -56,12 +65,12 @@ const Header = ({ history }) => {
               >
                 Logout
               </a>
-            ) : (
-              <Link className="nav-link" to="/login">
-                Login
-              </Link>
-            )}
-          </li>
+            </Dropdown>
+          ) : (
+            <Link className="nav-link" to="/login">
+              Login
+            </Link>
+          )}
         </ul>
       </div>
     </nav>

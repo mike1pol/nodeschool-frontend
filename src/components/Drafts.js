@@ -7,7 +7,7 @@ import Post from './Post';
 const Drafts = ({ draftsQuery: { loading, drafts } }) => (
   <div>
     {loading && <div>Loading...</div>}
-    {drafts && drafts.length === 0 && <div>Draft not found</div>}
+    {drafts && drafts.length === 0 && <div>Drafts not found</div>}
     {drafts && drafts.length > 0 && drafts.map(Post)}
   </div>
 );
